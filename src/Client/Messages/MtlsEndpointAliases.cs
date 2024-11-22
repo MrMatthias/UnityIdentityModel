@@ -1,9 +1,10 @@
 // Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-using System.Text.Json;
+using Newtonsoft.Json.Linq;
 
-namespace IdentityModel.Client;
+
+namespace IdentityModel.Client {
 
 /// <summary>
 /// MTLS endpoint aliases
@@ -13,13 +14,13 @@ public class MtlsEndpointAliases
     /// <summary>
     /// The raw JSON
     /// </summary>
-    public JsonElement? Json { get; }
+    public JToken? Json { get; }
 
     /// <summary>
     /// ctor
     /// </summary>
     /// <param name="json"></param>
-    public MtlsEndpointAliases(JsonElement? json)
+    public MtlsEndpointAliases(JToken? json)
     {
         Json = json;
     }
@@ -44,4 +45,4 @@ public class MtlsEndpointAliases
     /// </summary>
     public string? IntrospectionEndpoint => Json?.TryGetString(OidcConstants.Discovery.IntrospectionEndpoint);
         
-}
+}}

@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models the parameters that can be pushed in a Pushed Authorization Request.
@@ -111,4 +111,5 @@ public class PushedAuthorizationRequest : ProtocolRequest
         
         return targetParameters;
     }
+}
 }

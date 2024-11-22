@@ -6,11 +6,12 @@ using IdentityModel.Jwk;
 using System;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace IdentityModel.Client;
+
+namespace IdentityModel.Client {
 
 /// <summary>
 /// HttpClient extensions for dynamic registration
@@ -31,7 +32,7 @@ public static class HttpClientDynamicRegistrationExtensions
 
         clone.Method = HttpMethod.Post;
         clone.Content = new StringContent(
-            JsonSerializer.Serialize(request.Document, ClientMessagesSourceGenerationContext.Default.DynamicClientRegistrationDocument),
+            JsonConvert.SerializeObject(request.Document, Formatting.None),
             Encoding.UTF8,
             "application/json");
         clone.Prepare();
@@ -57,4 +58,4 @@ public static class HttpClientDynamicRegistrationExtensions
 
         return await ProtocolResponse.FromHttpResponseAsync<DynamicClientRegistrationResponse>(response).ConfigureAwait();
     }
-}
+}}

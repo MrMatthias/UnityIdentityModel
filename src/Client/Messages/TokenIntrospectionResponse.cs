@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text.Json;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
-namespace IdentityModel.Client;
+
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models an OAuth 2.0 introspection response
@@ -30,6 +31,7 @@ public class TokenIntrospectionResponse : ProtocolResponse
                 throw new InvalidOperationException("Json is null"); // TODO better exception
             }
             var issuer = Json?.TryGetString("iss");
+            
             var claims = Json?.ToClaims(issuer, "scope").ToList() ?? new List<Claim>();
 
             // due to a bug in identityserver - we need to be able to deal with the scope list both in array as well as space-separated list format
@@ -39,9 +41,9 @@ public class TokenIntrospectionResponse : ProtocolResponse
             // if (scope != null)
             // {
             // it's an array
-            if (scope?.ValueKind == JsonValueKind.Array)
+            if (scope?.Type == JTokenType.Array)
             {
-                foreach (var item in scope?.EnumerateArray() ?? Enumerable.Empty<JsonElement>())
+                foreach (var item in scope ?? Enumerable.Empty<JToken>())
                 {
                     claims.Add(new Claim("scope", item.ToString(), ClaimValueTypes.String, issuer));
                 }
@@ -81,4 +83,4 @@ public class TokenIntrospectionResponse : ProtocolResponse
     /// </value>
     public IEnumerable<Claim> Claims { get; protected set; } = Enumerable.Empty<Claim>();
 
-}
+}}

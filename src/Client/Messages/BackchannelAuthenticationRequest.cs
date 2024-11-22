@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Request for CIBA backchannel authentication
@@ -71,4 +71,4 @@ public class BackchannelAuthenticationRequest : ProtocolRequest
     /// The resources.
     /// </value>
     public ICollection<string> Resource { get; set; } = new HashSet<string>();
-}
+}}

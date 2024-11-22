@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Request for device authorization
@@ -15,4 +15,4 @@ public class DeviceAuthorizationRequest : ProtocolRequest
     /// The scope.
     /// </value>
     public string? Scope { get; set; }
-}
+}}

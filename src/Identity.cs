@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 /// <summary>
 /// Helpers to create ClaimsIdentity
@@ -107,4 +107,4 @@ public static class Identity
 
         return new ClaimsIdentity(claims, authenticationType);
     }
-}
+}}

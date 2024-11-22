@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Authority validation strategy.
@@ -25,4 +25,4 @@ public interface IAuthorityValidationStrategy
     /// <param name="endpoint">Endpoint declared in Discovery Document.</param>
     /// <returns></returns>
     AuthorityValidationResult IsEndpointValid(string endpoint, IEnumerable<string> expectedAuthority);
-}
+}}

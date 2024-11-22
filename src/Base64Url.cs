@@ -3,7 +3,7 @@
 
 using System;
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 /// <summary>
 /// Base64Url encoder/decoder
@@ -48,4 +48,4 @@ public static class Base64Url
             
         return Convert.FromBase64String(s); // Standard base64 decoder
     }
-}
+}}

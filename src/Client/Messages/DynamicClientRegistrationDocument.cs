@@ -5,12 +5,13 @@ using IdentityModel.Jwk;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 
 #pragma warning disable 1591
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models an OpenID Connect dynamic client registration request.
@@ -26,7 +27,7 @@ public class DynamicClientRegistrationDocument
     /// <remarks>
     /// Clients using flows with redirection must register their redirection URI values.
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.RedirectUris)]
+    [JsonProperty(OidcConstants.ClientMetadata.RedirectUris)]
     public ICollection<Uri> RedirectUris { get; set; } = new HashSet<Uri>();
 
     /// <summary>
@@ -35,7 +36,7 @@ public class DynamicClientRegistrationDocument
     /// <remarks>
     /// Example: "code" or "token".
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.ResponseTypes)]
+    [JsonProperty(OidcConstants.ClientMetadata.ResponseTypes)]
     public ICollection<string> ResponseTypes { get; set; } = new HashSet<string>();
 
     /// <summary>
@@ -44,7 +45,7 @@ public class DynamicClientRegistrationDocument
     /// <remarks>
     /// Example: "authorization_code", "implicit", "password", "client_credentials", "refresh_token".
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.GrantTypes)]
+    [JsonProperty(OidcConstants.ClientMetadata.GrantTypes)]
     public ICollection<string> GrantTypes { get; set; } = new HashSet<string>();
 
     /// <summary>
@@ -53,7 +54,7 @@ public class DynamicClientRegistrationDocument
     /// <remarks>
     /// The defined values are "native" or "web".
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.ApplicationType)]
+    [JsonProperty(OidcConstants.ClientMetadata.ApplicationType)]
     public string? ApplicationType { get; set; }
 
     /// <summary>
@@ -62,13 +63,13 @@ public class DynamicClientRegistrationDocument
     /// <remarks>
     /// The authorization server may make these contact addresses available to end-users for support requests for the client.
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.Contacts)]
+    [JsonProperty(OidcConstants.ClientMetadata.Contacts)]
     public ICollection<string> Contacts { get; set; } = new HashSet<string>();
 
     /// <summary>
     /// Human-readable string name of the client to be presented to the end-user during authorization.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.ClientName)]
+    [JsonProperty(OidcConstants.ClientMetadata.ClientName)]
     public string? ClientName { get; set; }
 
     /// <summary>
@@ -77,27 +78,27 @@ public class DynamicClientRegistrationDocument
     /// <remarks>
     /// If present, the server should display this image to the end-user during approval.
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.LogoUri)]
+    [JsonProperty(OidcConstants.ClientMetadata.LogoUri)]
     public Uri? LogoUri { get; set; }
 
     /// <summary>
     /// Web page providing information about the client.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.ClientUri)]
+    [JsonProperty(OidcConstants.ClientMetadata.ClientUri)]
     public Uri? ClientUri { get; set; }
 
     /// <summary>
     /// Human-readable privacy policy document that describes how the deployment organization
     /// collects, uses, retains, and discloses personal data.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.PolicyUri)]
+    [JsonProperty(OidcConstants.ClientMetadata.PolicyUri)]
     public Uri? PolicyUri { get; set; }
 
     /// <summary>
     /// Human-readable terms of service document for the client that describes a contractual relationship
     /// between the end-user and the client that the end-user accepts when authorizing the client.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.TosUri)]
+    [JsonProperty(OidcConstants.ClientMetadata.TosUri)]
     public Uri? TosUri { get; set; }
 
     /// <summary>
@@ -108,10 +109,10 @@ public class DynamicClientRegistrationDocument
     /// The <see cref="JwksUri"/> and <see cref="Jwks"/> parameters MUST NOT both be present in
     /// the same request or response.
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.JwksUri)]
+    [JsonProperty(OidcConstants.ClientMetadata.JwksUri)]
     public Uri? JwksUri { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.Jwks)]
+    [JsonProperty(OidcConstants.ClientMetadata.Jwks)]
     public JsonWebKeySet? Jwks { get; set; }
 
     /// <summary>
@@ -120,13 +121,13 @@ public class DynamicClientRegistrationDocument
     /// <remarks>
     /// The URL references a file with a single JSON array of <c>redirect_uri</c> values. 
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.SectorIdentifierUri)]
+    [JsonProperty(OidcConstants.ClientMetadata.SectorIdentifierUri)]
     public Uri? SectorIdentifierUri { get; set; }
 
     /// <remarks>
     /// Valid types include "pairwise" and "public".
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.SubjectType)]
+    [JsonProperty(OidcConstants.ClientMetadata.SubjectType)]
     public string? SubjectType { get; set; }
 
     /// <summary>
@@ -135,21 +136,21 @@ public class DynamicClientRegistrationDocument
     /// <remarks>
     /// If omitted, an authorization server may register a client with a default set of scopes.
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.Scope)]
+    [JsonProperty(OidcConstants.ClientMetadata.Scope)]
     public string? Scope { get; set; }
 
     /// <summary>
     /// List of post-logout redirection URIs for use in the end session
     /// endpoint.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.PostLogoutRedirectUris)]
+    [JsonProperty(OidcConstants.ClientMetadata.PostLogoutRedirectUris)]
     public ICollection<Uri> PostLogoutRedirectUris { get; set; } = new HashSet<Uri>();
 
     /// <summary>
     /// RP URL that will cause the RP to log itself out when rendered in an
     /// iframe by the OP.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.FrontChannelLogoutUri)]
+    [JsonProperty(OidcConstants.ClientMetadata.FrontChannelLogoutUri)]
     public string? FrontChannelLogoutUri { get; set; }
 
     /// <summary>
@@ -157,14 +158,14 @@ public class DynamicClientRegistrationDocument
     /// query parameter be included to identify the RP session with the OP when
     /// the frontchannel_logout_uri is used.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.FrontChannelLogoutSessionRequired)]
+    [JsonProperty(OidcConstants.ClientMetadata.FrontChannelLogoutSessionRequired)]
     public bool? FrontChannelLogoutSessionRequired { get; set; }
 
     /// <summary>
     /// RP URL that will cause the RP to log itself out when sent a Logout Token
     /// by the OP.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.BackchannelLogoutUri)]
+    [JsonProperty(OidcConstants.ClientMetadata.BackchannelLogoutUri)]
     public string? BackChannelLogoutUri { get; set; }
 
     /// <summary>
@@ -172,7 +173,7 @@ public class DynamicClientRegistrationDocument
     /// Claim be included in the Logout Token to identify the RP session with
     /// the OP when the backchannel_logout_uri is used.e
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.BackchannelLogoutSessionRequired)]
+    [JsonProperty(OidcConstants.ClientMetadata.BackchannelLogoutSessionRequired)]
     public bool? BackchannelLogoutSessionRequired { get; set; }
 
     /// <summary>
@@ -180,7 +181,7 @@ public class DynamicClientRegistrationDocument
     /// software as claims.  This is a string value containing the entire signed
     /// JWT.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.SoftwareStatement)]
+    [JsonProperty(OidcConstants.ClientMetadata.SoftwareStatement)]
     public string? SoftwareStatement { get; set; }
 
     /// <summary>
@@ -190,40 +191,40 @@ public class DynamicClientRegistrationDocument
     /// <remarks>
     /// The value of this field is not intended to be human readable and is usually opaque to the client and authorization server.
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.SoftwareId)]
+    [JsonProperty(OidcConstants.ClientMetadata.SoftwareId)]
     public string? SoftwareId { get; set; }
 
     /// <summary>
     /// A version identifier string for the client software identified by <see cref="SoftwareId"/>.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.SoftwareVersion)]
+    [JsonProperty(OidcConstants.ClientMetadata.SoftwareVersion)]
     public string? SoftwareVersion { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.IdentityTokenSignedResponseAlgorithm)]
+    [JsonProperty(OidcConstants.ClientMetadata.IdentityTokenSignedResponseAlgorithm)]
     public string? IdentityTokenSignedResponseAlgorithm { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.IdentityTokenEncryptedResponseAlgorithm)]
+    [JsonProperty(OidcConstants.ClientMetadata.IdentityTokenEncryptedResponseAlgorithm)]
     public string? IdentityTokenEncryptedResponseAlgorithm { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.IdentityTokenEncryptedResponseEncryption)]
+    [JsonProperty(OidcConstants.ClientMetadata.IdentityTokenEncryptedResponseEncryption)]
     public string? IdentityTokenEncryptedResponseEncryption { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.UserinfoSignedResponseAlgorithm)]
+    [JsonProperty(OidcConstants.ClientMetadata.UserinfoSignedResponseAlgorithm)]
     public string? UserinfoSignedResponseAlgorithm { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.UserInfoEncryptedResponseAlgorithm)]
+    [JsonProperty(OidcConstants.ClientMetadata.UserInfoEncryptedResponseAlgorithm)]
     public string? UserInfoEncryptedResponseAlgorithm { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.UserinfoEncryptedResponseEncryption)]
+    [JsonProperty(OidcConstants.ClientMetadata.UserinfoEncryptedResponseEncryption)]
     public string? UserinfoEncryptedResponseEncryption { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.RequestObjectSigningAlgorithm)]
+    [JsonProperty(OidcConstants.ClientMetadata.RequestObjectSigningAlgorithm)]
     public string? RequestObjectSigningAlgorithm { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.RequestObjectEncryptionAlgorithm)]
+    [JsonProperty(OidcConstants.ClientMetadata.RequestObjectEncryptionAlgorithm)]
     public string? RequestObjectEncryptionAlgorithm { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.RequestObjectEncryptionEncryption)]
+    [JsonProperty(OidcConstants.ClientMetadata.RequestObjectEncryptionEncryption)]
     public string? RequestObjectEncryptionEncryption { get; set; }
 
     /// <summary>
@@ -231,31 +232,31 @@ public class DynamicClientRegistrationDocument
     /// protected as signed request objects and provided through either the
     /// request or request_uri parameters.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.RequireSignedRequestObject)]
+    [JsonProperty(OidcConstants.ClientMetadata.RequireSignedRequestObject)]
     public bool? RequireSignedRequestObject { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.TokenEndpointAuthenticationMethod)]
+    [JsonProperty(OidcConstants.ClientMetadata.TokenEndpointAuthenticationMethod)]
     public string? TokenEndpointAuthenticationMethod { get; set; }
 
-    [JsonPropertyName(OidcConstants.ClientMetadata.TokenEndpointAuthenticationSigningAlgorithm)]
+    [JsonProperty(OidcConstants.ClientMetadata.TokenEndpointAuthenticationSigningAlgorithm)]
     public string? TokenEndpointAuthenticationSigningAlgorithm { get; set; }
 
     /// <summary>
     /// Default maximum authentication age.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.DefaultMaxAge)]
+    [JsonProperty(OidcConstants.ClientMetadata.DefaultMaxAge)]
     public int? DefaultMaxAge { get; set; }
 
     /// <summary>
     /// Whether the <c>auth_time</c> claim in the id token is required.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.RequireAuthenticationTime)]
+    [JsonProperty(OidcConstants.ClientMetadata.RequireAuthenticationTime)]
     public bool? RequireAuthenticationTime { get; set; }
 
     /// <summary>
     /// Default requested Authentication Context Class Reference values.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.DefaultAcrValues)]
+    [JsonProperty(OidcConstants.ClientMetadata.DefaultAcrValues)]
     public ICollection<string> DefaultAcrValues { get; set; } = new HashSet<string>();
 
     /// <summary>
@@ -267,20 +268,20 @@ public class DynamicClientRegistrationDocument
     /// understand the <c>login_hint</c> and iss parameters and should support
     /// the <c>target_link_uri</c> parameter.
     /// </remarks>
-    [JsonPropertyName(OidcConstants.ClientMetadata.InitiateLoginUri)]
+    [JsonProperty(OidcConstants.ClientMetadata.InitiateLoginUri)]
     public Uri? InitiateLoginUri { get; set; }
 
     /// <summary>
     /// List of request URI values that are pre-registered by the relying party for use at the OpenID provider.
     /// </summary>
-    [JsonPropertyName(OidcConstants.ClientMetadata.RequestUris)]
+    [JsonProperty(OidcConstants.ClientMetadata.RequestUris)]
     public ICollection<Uri> RequestUris { get; set; } = new HashSet<Uri>();
     
     /// <summary>
     /// Custom client metadata fields to include in the serialization.
     /// </summary>
     [JsonExtensionData]
-    public IDictionary<string, JsonElement>? Extensions { get; set; } = new Dictionary<string, JsonElement>(StringComparer.Ordinal);
+    public IDictionary<string, JToken>? Extensions { get; set; } = new Dictionary<string, JToken>(StringComparer.Ordinal);
 
     // Don't serialize empty arrays
     public bool ShouldSerializeRequestUris() => RequestUris.Any();
@@ -292,4 +293,5 @@ public class DynamicClientRegistrationDocument
     public bool ShouldSerializeGrantTypes() => GrantTypes.Any();
 
     public bool ShouldSerializeContacts() => Contacts.Any();
+}
 }

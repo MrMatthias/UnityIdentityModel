@@ -4,7 +4,7 @@
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace System.Net.Http;
+namespace System.Net.Http {
 
 /// <summary>
 /// HTTP Basic Authentication authorization header for RFC6749 client authentication
@@ -48,4 +48,4 @@ public class BasicAuthenticationOAuthHeaderValue : AuthenticationHeaderValue
             
         return Uri.EscapeDataString(value).Replace("%20", "+");
     }
-}
+}}

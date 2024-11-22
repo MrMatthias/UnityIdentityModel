@@ -4,7 +4,7 @@
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 /// <summary>
 /// Helper class to create ClaimsPrincipal
@@ -38,4 +38,4 @@ public static class Principal
     {
         return new ClaimsPrincipal(Identity.CreateFromCertificate(certificate, authenticationType, includeAllClaims));
     }
-}
+}}

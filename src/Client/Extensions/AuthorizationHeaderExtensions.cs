@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using static IdentityModel.OidcConstants;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Extensions for HttpRequestMessage
@@ -114,4 +114,4 @@ public static class AuthorizationHeaderExtensions
         }
         request.Headers.Add(OidcConstants.HttpHeaders.DPoP, proofToken);
     }
-}
+}}

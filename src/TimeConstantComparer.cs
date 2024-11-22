@@ -3,7 +3,7 @@
 
 using System.Runtime.CompilerServices;
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 /// <summary>
 /// Helper class to do equality checks without leaking timing information
@@ -56,4 +56,4 @@ public static class TimeConstantComparer
 
         return same;
     }
-}
+}}

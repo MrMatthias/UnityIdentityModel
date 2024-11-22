@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Client library for the OAuth 2 introspection endpoint
@@ -79,4 +79,4 @@ public class IntrospectionClient
 
         return _client().IntrospectTokenAsync(request, cancellationToken);
     }
-}
+}}

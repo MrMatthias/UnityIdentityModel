@@ -3,10 +3,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
-namespace IdentityModel.Jwk;
+
+namespace IdentityModel.Jwk {
 
 /// <summary>
 /// Contains a collection of <see cref="JsonWebKey"/> that can be populated from a json string.
@@ -29,7 +29,7 @@ public class JsonWebKeySet
     {
         if (string.IsNullOrWhiteSpace(json)) throw new ArgumentNullException(nameof(json));
 
-        var jwebKeys = JsonSerializer.Deserialize<JsonWebKeySet>(json, JwkSourceGenerationContext.Default.JsonWebKeySet);
+        var jwebKeys = JsonConvert.DeserializeObject<JsonWebKeySet>(json);
         if (jwebKeys == null) throw new InvalidOperationException("invalid JSON web keys");
         
         Keys = jwebKeys.Keys;
@@ -39,7 +39,8 @@ public class JsonWebKeySet
     /// <summary>
     /// A list of JSON web keys
     /// </summary>
-    [JsonPropertyName("keys")]
+    
+    [JsonProperty("keys")]
     public List<JsonWebKey> Keys { get; set; } = new();
     
     /// <summary>
@@ -47,4 +48,8 @@ public class JsonWebKeySet
     /// </summary>
     [JsonIgnore]
     public string? RawData { get; set; }
+
+}
+
+
 }

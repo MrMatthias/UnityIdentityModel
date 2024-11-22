@@ -4,7 +4,7 @@
 using System;
 using System.Security.Cryptography;
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 /// <summary>
 /// A class that mimics the standard Random class in the .NET Framework - but uses a random number generator internally.
@@ -164,4 +164,4 @@ public class CryptoRandom : Random
         if (buffer == null) throw new ArgumentNullException(nameof(buffer));
         Rng.GetBytes(buffer);
     }
-}
+}}

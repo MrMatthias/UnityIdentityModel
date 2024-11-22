@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// HttpClient extensions for OIDC userinfo
@@ -49,4 +49,4 @@ public static class HttpClientUserInfoExtensions
         var skipJsonParsing = response.Content?.Headers.ContentType?.MediaType != "application/json";
         return await ProtocolResponse.FromHttpResponseAsync<UserInfoResponse>(response, skipJson: skipJsonParsing).ConfigureAwait();
     }
-}
+}}

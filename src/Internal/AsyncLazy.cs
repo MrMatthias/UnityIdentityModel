@@ -4,7 +4,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Internal;
+namespace IdentityModel.Internal {
 
 internal class AsyncLazy<T> : Lazy<Task<T>>
 {
@@ -32,4 +32,4 @@ internal class AsyncLazy<T> : Lazy<Task<T>>
 	//public AsyncLazy(Func<Task<T>> taskFactory, LazyThreadSafetyMode mode) :
 	//    base(() => Task.Factory.StartNew(taskFactory).Unwrap(), mode)
 	//{ }
-}
+}}

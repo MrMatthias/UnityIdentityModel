@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Security policy for retrieving a discovery document
@@ -67,4 +67,4 @@ public class DiscoveryPolicy
     /// Specifies if a key set is required. Defaults to true.
     /// </summary>
     public bool RequireKeySet { get; set; } = true;
-}
+}}

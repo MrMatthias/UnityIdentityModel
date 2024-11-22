@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Request for token using urn:openid:params:grant-type:ciba grant type
@@ -23,4 +23,4 @@ public class BackchannelAuthenticationTokenRequest : TokenRequest
     /// The resources.
     /// </value>
     public ICollection<string> Resource { get; set; } = new HashSet<string>();
-}
+}}

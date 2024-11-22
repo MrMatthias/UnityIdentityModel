@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Request for OAuth token revocation
@@ -24,4 +24,4 @@ public class TokenRevocationRequest : ProtocolRequest
     /// The token type hint.
     /// </value>
     public string TokenTypeHint { get; set; } = default!;
-}
+}}

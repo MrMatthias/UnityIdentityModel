@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Options for TokenClient
@@ -75,4 +75,4 @@ public abstract class ClientOptions
     /// The parameters.
     /// </value>
     public Parameters Parameters { get; set; } = new();
-}
+}}

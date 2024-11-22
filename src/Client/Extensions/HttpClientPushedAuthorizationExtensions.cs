@@ -3,11 +3,12 @@
 
 using IdentityModel.Internal;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// HttpClient extensions for OIDC discovery
@@ -58,7 +59,7 @@ public static class HttpClientPushedAuthorizationExtensions
             clone.Parameters.AddOptional(OidcConstants.AuthorizeRequest.MaxAge, request.MaxAge.ToString());
             clone.Parameters.AddOptional(OidcConstants.AuthorizeRequest.UiLocales, request.UiLocales);
             clone.Parameters.AddOptional(OidcConstants.AuthorizeRequest.IdTokenHint, request.IdTokenHint);
-            foreach(var resource in request.Resource ?? [])
+            foreach(var resource in request.Resource ?? new List<string> { })
             {
                 clone.Parameters.AddOptional(OidcConstants.AuthorizeRequest.Resource, resource, allowDuplicates: true);
             }
@@ -89,4 +90,5 @@ public static class HttpClientPushedAuthorizationExtensions
 
         return await ProtocolResponse.FromHttpResponseAsync<PushedAuthorizationResponse>(response).ConfigureAwait();
     }
+}
 }

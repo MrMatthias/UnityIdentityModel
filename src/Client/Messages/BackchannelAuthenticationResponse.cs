@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models a CIBA backchannel authentication response
@@ -40,4 +40,4 @@ public class BackchannelAuthenticationResponse : ProtocolResponse
     /// OPTIONAL. A JSON number with a positive integer value indicating the minimum amount of time in seconds that the Client MUST wait between polling requests to the token endpoint.
     /// </summary>
     public int? Interval => Json?.TryGetInt(OidcConstants.BackchannelAuthenticationResponse.Interval);
-}
+}}

@@ -1,10 +1,12 @@
 ﻿// Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-using System.Text;
-using System.Text.Json;
 
-namespace IdentityModel.Jwk;
+using System.Text;
+using Newtonsoft.Json;
+
+
+namespace IdentityModel.Jwk {
 
 /// <summary>
 /// Extensions for JsonWebKey
@@ -18,7 +20,7 @@ public static class JsonWebKeyExtensions
     /// <returns></returns>
     public static string ToJwkString(this JsonWebKey key)
     {
-        var json = JsonSerializer.Serialize(key, JwkSourceGenerationContext.Default.JsonWebKey);
+        var json = JsonConvert.SerializeObject(key, Formatting.None);
         return Base64Url.Encode(Encoding.UTF8.GetBytes(json));
     }
-}
+}}

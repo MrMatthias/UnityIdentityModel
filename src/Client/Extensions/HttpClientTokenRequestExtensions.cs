@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// HttpClient extensions for OAuth token requests
@@ -233,4 +233,4 @@ public static class HttpClientTokenRequestExtensions
 
         return await ProtocolResponse.FromHttpResponseAsync<TokenResponse>(response).ConfigureAwait();
     }
-}
+}}

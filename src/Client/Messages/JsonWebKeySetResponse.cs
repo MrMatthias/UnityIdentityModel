@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using IdentityModel.Jwk;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models a response from a JWK endpoint
@@ -35,4 +35,4 @@ public class JsonWebKeySetResponse : ProtocolResponse
     /// The key set
     /// </summary>
     public JsonWebKeySet? KeySet { get; set; }
-}
+}}

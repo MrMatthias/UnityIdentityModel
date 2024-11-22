@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 
 #pragma warning disable 1591
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 [EditorBrowsable(EditorBrowsableState.Never)]
 public class X509CertificatesLocation
@@ -23,4 +23,4 @@ public class X509CertificatesLocation
     public X509CertificatesName TrustedPeople => new X509CertificatesName(_location, StoreName.TrustedPeople);
     public X509CertificatesName TrustedPublisher => new X509CertificatesName(_location, StoreName.TrustedPublisher);
     public X509CertificatesName CertificateAuthority => new X509CertificatesName(_location, StoreName.CertificateAuthority);
-}
+}}

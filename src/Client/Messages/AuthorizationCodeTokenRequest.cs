@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Request for token using authorization_code
@@ -42,4 +42,4 @@ public class AuthorizationCodeTokenRequest : TokenRequest
     /// The code verifier.
     /// </value>
     public string? CodeVerifier { get; set; }
-}
+}}

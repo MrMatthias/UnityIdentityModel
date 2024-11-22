@@ -10,7 +10,7 @@ using System.Linq;
 using System.Reflection;
 using IdentityModel.Internal;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models a list of request parameters
@@ -203,4 +203,5 @@ public class Parameters : List<KeyValuePair<string, string>>
 
         return this;
     }
+}
 }

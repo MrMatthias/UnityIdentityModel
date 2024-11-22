@@ -3,7 +3,7 @@
 
 using System;
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 /// <summary>
 /// Extensions for converting epoch/unix time to DateTime and DateTimeOffset
@@ -29,4 +29,4 @@ public static class DateTimeExtensions
         var timeInTicks = date * TimeSpan.TicksPerSecond;
         return new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddTicks(timeInTicks);
     }
-}
+}}

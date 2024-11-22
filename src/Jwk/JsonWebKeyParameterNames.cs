@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace IdentityModel.Jwk;
+namespace IdentityModel.Jwk {
 
 /// <summary>
 /// Names for Json Web Key Values
@@ -35,4 +35,4 @@ public static class JsonWebKeyParameterNames
     public const string X = "x";
     public const string Y = "y";
 #pragma warning restore 1591
-}
+}}

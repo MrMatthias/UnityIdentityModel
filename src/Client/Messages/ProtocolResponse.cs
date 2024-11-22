@@ -6,10 +6,11 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
-namespace IdentityModel.Client;
+
+namespace IdentityModel.Client {
 
 /// <summary>
 /// A protocol response
@@ -62,7 +63,7 @@ public class ProtocolResponse
             {
                 try
                 {
-                    response.Json = JsonDocument.Parse(content!).RootElement;
+                    response.Json = JToken.Parse(content!);
                 }
                 catch { }
             }
@@ -81,7 +82,7 @@ public class ProtocolResponse
         {
             if (!skipJson && content.IsPresent())
             {
-                response.Json = JsonDocument.Parse(content!).RootElement;
+                response.Json = JToken.Parse(content!);
             }
         }
         catch (Exception ex)
@@ -156,7 +157,7 @@ public class ProtocolResponse
     /// <value>
     /// The json.
     /// </value>
-    public JsonElement? Json { get; protected set; }
+    public JToken? Json { get; protected set; }
 
     /// <summary>
     /// Gets the exception (if present).
@@ -244,4 +245,4 @@ public class ProtocolResponse
     /// The returned DPoP nonce header.
     /// </summary>
     public string? DPoPNonce { get; set; }
-}
+}}

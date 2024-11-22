@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Client library for the OpenID Connect / OAuth 2 token endpoint
@@ -179,4 +179,4 @@ public class TokenClient
 
         return _client().RequestTokenAsync(request, cancellationToken);
     }
-}
+}}

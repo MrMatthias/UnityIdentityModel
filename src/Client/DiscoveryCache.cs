@@ -6,7 +6,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Helper for caching discovery documents.
@@ -92,4 +92,4 @@ public class DiscoveryCache : IDiscoveryCache
 
         return result;
     }
-}
+}}

@@ -3,7 +3,7 @@
 
 #pragma warning disable 1591
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models an OpenID Connect dynamic client registration response
@@ -19,4 +19,4 @@ public class DynamicClientRegistrationResponse : ProtocolResponse
     public long? ClientIdIssuedAt           => Json?.TryGetInt(OidcConstants.RegistrationResponse.ClientIdIssuedAt);
     public long? ClientSecretExpiresAt      => Json?.TryGetInt(OidcConstants.RegistrationResponse.ClientSecretExpiresAt);
     public string? SoftwareStatement        => Json?.TryGetString(OidcConstants.RegistrationResponse.SoftwareStatement);
-}
+}}

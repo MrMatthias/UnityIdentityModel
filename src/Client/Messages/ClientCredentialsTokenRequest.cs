@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Request for token using client_credentials
@@ -26,4 +26,4 @@ public class ClientCredentialsTokenRequest : TokenRequest
     /// The scope.
     /// </value>
     public ICollection<string> Resource { get; set; } = new HashSet<string>();
-}
+}}

@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 
-namespace IdentityModel.Internal;
+namespace IdentityModel.Internal {
 
 /// <summary>
 /// Helpers to deal with tasks.
@@ -26,4 +26,4 @@ public static class TaskHelpers
 
 	internal static ConfiguredTaskAwaitable<TResult> ConfigureAwait<TResult>(this Task<TResult> task)
 		=> task.ConfigureAwait(!CanConfigureAwaitFalse);
-}
+}}

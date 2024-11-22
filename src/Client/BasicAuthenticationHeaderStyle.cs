@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Enum for specifying then encoding style of the basic authentication header
@@ -16,4 +16,4 @@ public enum BasicAuthenticationHeaderStyle
     /// Uses the encoding as described in the original basic authentication spec (https://tools.ietf.org/html/rfc2617#section-2 - used by some non-OAuth 2.0 compliant authorization servers). Base64(client_id + ":" + client_secret). 
     /// </summary>
     Rfc2617
-}
+}}

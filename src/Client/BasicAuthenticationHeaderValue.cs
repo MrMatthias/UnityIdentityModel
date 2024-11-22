@@ -4,7 +4,7 @@
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace System.Net.Http;
+namespace System.Net.Http {
 
 /// <summary>
 /// HTTP Basic Authentication authorization header
@@ -38,4 +38,4 @@ public class BasicAuthenticationHeaderValue : AuthenticationHeaderValue
 
         return Convert.ToBase64String(encoding.GetBytes(credential));
     }
-}
+}}

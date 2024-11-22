@@ -5,7 +5,7 @@ using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
-namespace IdentityModel.Internal;
+namespace IdentityModel.Internal {
 
 internal static class InternalStringExtensions
 {
@@ -44,4 +44,4 @@ internal static class InternalStringExtensions
 
         return url;
     }
-}
+}}

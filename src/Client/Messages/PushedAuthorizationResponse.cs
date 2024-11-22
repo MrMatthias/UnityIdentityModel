@@ -1,7 +1,7 @@
 // Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models the response from a Pushed Authorization Request
@@ -28,4 +28,4 @@ public class PushedAuthorizationResponse : ProtocolResponse
     /// </summary>
     public string? RequestUri =>
         Json?.TryGetString(OidcConstants.PushedAuthorizationRequestResponse.RequestUri);
-}
+}}

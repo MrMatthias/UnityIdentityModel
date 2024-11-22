@@ -4,7 +4,7 @@
 using IdentityModel.Internal;
 using System;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Represents a URL to a discovery endpoint - parsed to separate the URL and authority
@@ -130,4 +130,4 @@ public class DiscoveryEndpoint
     /// The discovery endpoint.
     /// </value>
     public string Url { get; }
-}
+}}

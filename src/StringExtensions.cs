@@ -6,7 +6,7 @@ using System;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 /// <summary>
 /// Extensions for strings
@@ -48,4 +48,4 @@ public static class StringExtensions
             return Convert.ToBase64String(hash);
         }
     }
-}
+}}

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 /// <summary>
 /// Compares two instances of Claim
@@ -102,4 +102,4 @@ public class ClaimComparer : EqualityComparer<Claim>
             return typeHash ^ valueHash ^ issuerHash;
         }
     }
-}
+}}

@@ -1,7 +1,7 @@
 // Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Request for token using urn:ietf:params:oauth:grant-type:token-exchange
@@ -48,4 +48,4 @@ public class TokenExchangeTokenRequest : TokenRequest
     /// An identifier that indicates the type of the security token in the "actor_token" parameter. This is REQUIRED when the "actor_token" parameter is present in the request but MUST NOT be included otherwise.
     /// </summary>
     public string? ActorTokenType { get; set; }
-}
+}}

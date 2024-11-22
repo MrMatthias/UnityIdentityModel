@@ -8,7 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models a base OAuth/OIDC request with client credentials
@@ -206,4 +206,4 @@ public class ProtocolRequest : HttpRequestMessage
             Content = new FormUrlEncodedContent(Parameters);
         }
     }
-}
+}}

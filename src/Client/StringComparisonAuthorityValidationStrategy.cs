@@ -5,7 +5,7 @@ using IdentityModel.Internal;
 using System;
 using System.Collections.Generic;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Implementation of <see cref="IAuthorityValidationStrategy"/> based on <see cref="StringComparison"/>.
@@ -60,4 +60,5 @@ public sealed class StringComparisonAuthorityValidationStrategy : IAuthorityVali
         var expectedBaseAddresses = string.Join(",", allowedAuthorities);
         return AuthorityValidationResult.CreateError($"Invalid base address for endpoint {endpoint}. Valid base addresses: {expectedBaseAddresses}.");
     }
-}
+
+}}

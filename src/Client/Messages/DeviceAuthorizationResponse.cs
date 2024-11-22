@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models an OAuth device authorization response
@@ -64,4 +64,4 @@ public class DeviceAuthorizationResponse : ProtocolResponse
     /// The error description.
     /// </value>
     public string? ErrorDescription => Json?.TryGetString(OidcConstants.TokenResponse.ErrorDescription);
-}
+}}

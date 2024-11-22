@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models the response of an authorize request
@@ -201,4 +201,4 @@ public class AuthorizeResponse
 
         return null;
     }
-}
+}}

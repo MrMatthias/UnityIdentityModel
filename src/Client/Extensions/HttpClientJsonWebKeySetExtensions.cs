@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// HttpClient extensions for OIDC discovery
@@ -67,4 +67,4 @@ public static class HttpClientJsonWebKeySetExtensions
 
         return await ProtocolResponse.FromHttpResponseAsync<JsonWebKeySetResponse>(response).ConfigureAwait();
     }
-}
+}}

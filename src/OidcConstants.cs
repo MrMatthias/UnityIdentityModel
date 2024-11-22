@@ -3,7 +3,7 @@
 
 #pragma warning disable 1591
 
-namespace IdentityModel;
+namespace IdentityModel {
 
 public static class OidcConstants
 {
@@ -547,4 +547,4 @@ public static class OidcConstants
         public const string DPoP = "DPoP";
         public const string DPoPNonce = "DPoP-Nonce";
     }
-}
+}}

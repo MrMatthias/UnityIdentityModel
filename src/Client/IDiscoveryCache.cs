@@ -4,7 +4,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Interface for discovery cache
@@ -29,4 +29,4 @@ public interface IDiscoveryCache
     /// Forces a refresh on the next get.
     /// </summary>
     void Refresh();
-}
+}}

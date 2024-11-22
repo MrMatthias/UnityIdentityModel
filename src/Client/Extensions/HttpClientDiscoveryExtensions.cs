@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// HttpClient extentions for OIDC discovery
@@ -144,4 +144,4 @@ public static class HttpClientDiscoveryExtensions
             return ProtocolResponse.FromException<DiscoveryDocumentResponse>(ex, $"Error connecting to {url}. {ex.Message}.");
         }
     }
-}
+}}

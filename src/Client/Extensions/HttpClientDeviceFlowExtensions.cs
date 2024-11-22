@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// HttpClient extensions for OIDC userinfo
@@ -53,4 +53,4 @@ public static class HttpClientDeviceFlowExtensions
 
         return await ProtocolResponse.FromHttpResponseAsync<DeviceAuthorizationResponse>(response).ConfigureAwait();
     }
-}
+}}

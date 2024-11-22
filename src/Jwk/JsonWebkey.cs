@@ -3,13 +3,13 @@
 
 using System.Collections.Generic;
 using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+
 
 #pragma warning disable 1591
 #nullable disable
 
-namespace IdentityModel.Jwk;
+namespace IdentityModel.Jwk {
 
 /// <summary>
 /// Represents a Json Web Key as defined in http://tools.ietf.org/html/rfc7517.
@@ -36,7 +36,7 @@ public class JsonWebKey
     {
         if (string.IsNullOrWhiteSpace(json)) throw new ArgumentNullException(nameof(json));
 
-        var key = JsonSerializer.Deserialize<JsonWebKey>(json, JwkSourceGenerationContext.Default.JsonWebKey);
+        var key = JsonConvert.DeserializeObject<JsonWebKey>(json);
         if (key == null) throw new InvalidOperationException("malformed key");
 
         Copy(key);
@@ -72,53 +72,53 @@ public class JsonWebKey
     /// <summary>
     /// Gets or sets the 'alg' (KeyType)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.Alg)]
+    [JsonProperty(JsonWebKeyParameterNames.Alg)]
     public string Alg { get; set; }
 
     /// <summary>
     /// Gets or sets the 'crv' (ECC - Curve)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.Crv)]
+    [JsonProperty(JsonWebKeyParameterNames.Crv)]
     public string Crv { get; set; }
 
     /// <summary>
     /// Gets or sets the 'd' (ECC - Private Key OR RSA - Private Exponent)..
     /// </summary>
     /// <remarks> value is formated as: Base64urlUInt</remarks>
-    [JsonPropertyName(JsonWebKeyParameterNames.D)]
+    [JsonProperty(JsonWebKeyParameterNames.D)]
     public string D { get; set; }
 
     /// <summary>
     /// Gets or sets the 'dp' (RSA - First Factor CRT Exponent)..
     /// </summary>
     /// <remarks> value is formated as: Base64urlUInt</remarks>
-    [JsonPropertyName(JsonWebKeyParameterNames.DP)]
+    [JsonProperty(JsonWebKeyParameterNames.DP)]
     public string DP { get; set; }
 
     /// <summary>
     /// Gets or sets the 'dq' (RSA - Second Factor CRT Exponent)..
     /// </summary>
     /// <remarks> value is formated as: Base64urlUInt</remarks>
-    [JsonPropertyName(JsonWebKeyParameterNames.DQ)]
+    [JsonProperty(JsonWebKeyParameterNames.DQ)]
     public string DQ { get; set; }
 
     /// <summary>
     /// Gets or sets the 'e' (RSA - Exponent)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.E)]
+    [JsonProperty(JsonWebKeyParameterNames.E)]
     public string E { get; set; }
 
     /// <summary>
     /// Gets or sets the 'k' (Symmetric - Key Value)..
     /// </summary>
     /// Base64urlEncoding
-    [JsonPropertyName(JsonWebKeyParameterNames.K)]
+    [JsonProperty(JsonWebKeyParameterNames.K)]
     public string K { get; set; }
 
     /// <summary>
     /// Gets or sets the 'key_ops' (Key Operations)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.KeyOps)]
+    [JsonProperty(JsonWebKeyParameterNames.KeyOps)]
     public IList<string> KeyOps
     {
         get { return _keyops; }
@@ -134,66 +134,66 @@ public class JsonWebKey
     /// <summary>
     /// Gets or sets the 'kid' (Key ID)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.Kid)]
+    [JsonProperty(JsonWebKeyParameterNames.Kid)]
     public string Kid { get; set; }
 
     /// <summary>
     /// Gets or sets the 'kty' (Key Type)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.Kty)]
+    [JsonProperty(JsonWebKeyParameterNames.Kty)]
     public string Kty { get; set; }
 
     /// <summary>
     /// Gets or sets the 'n' (RSA - Modulus)..
     /// </summary>
     /// <remarks> value is formated as: Base64urlEncoding</remarks>
-    [JsonPropertyName(JsonWebKeyParameterNames.N)]
+    [JsonProperty(JsonWebKeyParameterNames.N)]
     public string N { get; set; }
 
     /// <summary>
     /// Gets or sets the 'oth' (RSA - Other Primes Info)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.Oth)]
+    [JsonProperty(JsonWebKeyParameterNames.Oth)]
     public IList<string> Oth { get; set; }
 
     /// <summary>
     /// Gets or sets the 'p' (RSA - First Prime Factor)..
     /// </summary>
     /// <remarks> value is formated as: Base64urlUInt</remarks>
-    [JsonPropertyName(JsonWebKeyParameterNames.P)]
+    [JsonProperty(JsonWebKeyParameterNames.P)]
     public string P { get; set; }
 
     /// <summary>
     /// Gets or sets the 'q' (RSA - Second  Prime Factor)..
     /// </summary>
     /// <remarks> value is formated as: Base64urlUInt</remarks>
-    [JsonPropertyName(JsonWebKeyParameterNames.Q)]
+    [JsonProperty(JsonWebKeyParameterNames.Q)]
     public string Q { get; set; }
 
     /// <summary>
     /// Gets or sets the 'qi' (RSA - First CRT Coefficient)..
     /// </summary>
     /// <remarks> value is formated as: Base64urlUInt</remarks>
-    [JsonPropertyName(JsonWebKeyParameterNames.QI)]
+    [JsonProperty(JsonWebKeyParameterNames.QI)]
     public string QI { get; set; }
 
     /// <summary>
     /// Gets or sets the 'use' (Public Key Use)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.Use)]
+    [JsonProperty(JsonWebKeyParameterNames.Use)]
     public string Use { get; set; }
 
     /// <summary>
     /// Gets or sets the 'x' (ECC - X Coordinate)..
     /// </summary>
     /// <remarks> value is formated as: Base64urlEncoding</remarks>
-    [JsonPropertyName(JsonWebKeyParameterNames.X)]
+    [JsonProperty(JsonWebKeyParameterNames.X)]
     public string X { get; set; }
 
     /// <summary>
     /// Gets the 'x5c' collection (X.509 Certificate Chain)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.X5c)]
+    [JsonProperty(JsonWebKeyParameterNames.X5c)]
     public IList<string> X5c
     {
         get { return _certificateClauses; }
@@ -210,26 +210,26 @@ public class JsonWebKey
     /// <summary>
     /// Gets or sets the 'x5t' (X.509 Certificate SHA-1 thumbprint)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.X5t)]
+    [JsonProperty(JsonWebKeyParameterNames.X5t)]
     public string X5t { get; set; }
 
     /// <summary>
     /// Gets or sets the 'x5t#S256' (X.509 Certificate SHA-1 thumbprint)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.X5tS256)]
+    [JsonProperty(JsonWebKeyParameterNames.X5tS256)]
     public string X5tS256 { get; set; }
 
     /// <summary>
     /// Gets or sets the 'x5u' (X.509 URL)..
     /// </summary>
-    [JsonPropertyName(JsonWebKeyParameterNames.X5u)]
+    [JsonProperty(JsonWebKeyParameterNames.X5u)]
     public string X5u { get; set; }
 
     /// <summary>
     /// Gets or sets the 'y' (ECC - Y Coordinate)..
     /// </summary>
     /// <remarks> value is formated as: Base64urlEncoding</remarks>
-    [JsonPropertyName(JsonWebKeyParameterNames.Y)]
+    [JsonProperty(JsonWebKeyParameterNames.Y)]
     public string Y { get; set; }
 
     public int KeySize
@@ -259,4 +259,4 @@ public class JsonWebKey
                 return false;
         }
     }
-}
+}}

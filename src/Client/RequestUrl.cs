@@ -4,7 +4,7 @@
 using IdentityModel.Internal;
 using System.Linq;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Helper class for creating request URLs
@@ -36,4 +36,4 @@ public class RequestUrl
 
         return QueryHelpers.AddQueryString(_baseUrl, parameters);
     }
-}
+}}

@@ -3,7 +3,7 @@
 
 using IdentityModel.Internal;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Extensions for RequestUrl
@@ -119,4 +119,4 @@ public static class RequestUrlExtensions
 
         return request.Create(values.Merge(extra));
     }
-}
+}}

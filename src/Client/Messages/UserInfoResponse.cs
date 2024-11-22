@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace IdentityModel.Client;
+namespace IdentityModel.Client {
 
 /// <summary>
 /// Models an OpenID Connect userinfo response
@@ -21,9 +21,9 @@ public class UserInfoResponse : ProtocolResponse
     /// <returns></returns>
     protected override Task InitializeAsync(object? initializationData = null)
     {
-        if (!IsError && Json.HasValue)
+        if (!IsError && Json.HasValue())
         {
-            Claims = Json.Value.ToClaims();
+            Claims = Json.ToClaims();
         }
         else
         {
@@ -40,4 +40,4 @@ public class UserInfoResponse : ProtocolResponse
     /// The claims.
     /// </value>
     public IEnumerable<Claim> Claims { get; private set; } = default!;
-}
+}}
