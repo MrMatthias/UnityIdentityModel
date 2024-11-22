@@ -125,6 +125,10 @@ namespace IdentityModel.Client
 		public static string? TryGetString(this JToken json, string name)
 		{
 			JToken value = json.TryGetValue(name);
+			if (value == null)
+			{
+				return null;
+			}
 			return value.Type == JTokenType.Undefined ? null : value.ToString();
 		}
 
@@ -157,6 +161,10 @@ namespace IdentityModel.Client
 			var values = new List<string>();
 
 			var array = json.TryGetValue(name);
+			if(array == null)
+			{
+				return values;
+			}
 			if (array.Type == JTokenType.Array)
 			{
 				JArray jArray = (JArray)array;
